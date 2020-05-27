@@ -1,0 +1,21 @@
+{
+    "name": "tzlib",
+    "version": "1.0.1",
+    "description": "Extension methods to premitive types",
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "build": "tsc"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/mahmmad-khamar-shaikh/Tlib.git"
+    },
+    "author": "mahmmad-khamar-shaikh",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/mahmmad-khamar-shaikh/Tlib/issues"
+    },
+    "homepage": "https://github.com/mahmmad-khamar-shaikh/Tlib#readme"
+}
