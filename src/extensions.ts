@@ -1,3 +1,4 @@
+import { compare } from './util';
 export { }
 declare global {
     export interface Array<T> {
@@ -5,6 +6,8 @@ declare global {
         last(): T;
         where(predicate: (item: T) => boolean): T[];
         addRange(range: T[]): T[];
+        removeRange(index: number, range: number): T[];
+        strictSort(): T[];
     }
 }
 
@@ -44,3 +47,36 @@ if (!Array.prototype.addRange) {
         return this;
     }
 }
+
+if (!Array.prototype.removeRange) {
+    Array.prototype.removeRange = function <T>(this: T[], index: number, range: number): T[] {
+        return this.splice(index, 0);
+    }
+}
+
+if (!Array.prototype.removeRange) {
+    Array.prototype.removeRange = function <T>(this: T[], index: number, range: number): T[] {
+        return this.splice(index, 0);
+    }
+}
+
+if (!Array.prototype.strictSort) {
+    Array.prototype.strictSort = function <T>(this: T[]): T[] {
+        if (this.length > 1) {
+            const typeDetermine = typeof this[0];
+            switch (typeDetermine) {
+                case "string":
+                    return this.sort();
+                    break;
+                case "number":
+                    return this.sort(compare);
+                    break;
+                default:
+                    throw new Error("'strictSort' works with 'number' and 'string'. For sorting array of Objects, use 'orderBy' function");
+            }
+        } else {
+            throw new Error("Invalid or Insufficient items in Array");
+        }
+    }
+}
+
