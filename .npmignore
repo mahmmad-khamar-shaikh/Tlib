@@ -1,7 +1,0 @@
-tsconfig.json
-src
-.gitignore
-tests
-node_modules
-jasmine.json
-tsconfig.json
