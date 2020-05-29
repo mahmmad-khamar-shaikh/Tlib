@@ -50,13 +50,7 @@ if (!Array.prototype.addRange) {
 
 if (!Array.prototype.removeRange) {
     Array.prototype.removeRange = function <T>(this: T[], index: number, range: number): T[] {
-        return this.splice(index, 0);
-    }
-}
-
-if (!Array.prototype.removeRange) {
-    Array.prototype.removeRange = function <T>(this: T[], index: number, range: number): T[] {
-        return this.splice(index, 0);
+        return this.splice(index, range);
     }
 }
 
