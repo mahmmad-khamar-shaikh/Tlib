@@ -8,6 +8,7 @@ declare global {
         addRange(range: T[]): T[];
         removeRange(index: number, range: number): T[];
         strictSort(): T[];
+        orderBy(propertyExpressions: (item: T) => string, asc?: boolean): T[];
     }
 }
 
@@ -74,3 +75,33 @@ if (!Array.prototype.strictSort) {
     }
 }
 
+if (!Array.prototype.orderBy) {
+    Array.prototype.orderBy = function <T>(this: T[], propertyExpression: (item: T) => string, asc: boolean = true): T[] {
+        if (this.length > 1) {
+            const typeDetermine = typeof this[0];
+            if (typeDetermine === "object") {
+
+                const compareFunction = (ele1: T, ele2: T): number => {
+                    for (let i = 0; i < propertyExpression.length; i++) {
+                        if (propertyExpression(ele1) > propertyExpression(ele2)) {
+                            return asc ? 1 : -1;
+                        }
+                        if (propertyExpression(ele2) > propertyExpression(ele1)) {
+                            return asc ? -1 : 1;
+                        }
+                    }
+                    return 0;
+                }
+                this.forEach((arrayItem: T) => {
+                    return this.sort(compareFunction);
+                });
+                return this;
+
+            } else {
+                throw new Error("'orderBy' works with 'object' . For sorting array of string or number, use 'strict' function");
+            }
+        } else {
+            throw new Error("Invalid or Insufficient items in Array");
+        }
+    }
+}

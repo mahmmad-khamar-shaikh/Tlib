@@ -110,3 +110,16 @@ let numArray = new Array<number>();
 
 }
 ```
+### *orderBy(property,sortOrder?)*
+___
+> Returns first elements of an array.
+```javascript
+function orderBy(expression,sortOrder) {
+    let sArray = new Array<number>();
+        sArray=  [{ Name: 'Tony Stark', Alias: 'Iron Man' }, { Name: 'Robert Bruce Banner', Alias: 'Hulk' },
+                  { Name: 'Steve Rojer', Alias: 'Captain America' }, { Name: 'Natasha Romanova', Alias: 'Black Widow' }];
+  
+  console.log(numArray.orderBy(item=>item.Name));  // Will sort array by Name property in Asc order
+  console.log(numArray.orderBy(item=>item.Alias));  // Will sort array by Alias property in Desc order
+}
+```
