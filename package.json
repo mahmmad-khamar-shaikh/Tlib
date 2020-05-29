@@ -13,12 +13,18 @@
         "type": "git",
         "url": "git+https://github.com/mahmmad-khamar-shaikh/Tlib.git"
     },
-    "author": "mahmmad-khamar-shaikh",
+    "author": "Mahmmadkhamar shaikh",
     "license": "MIT",
     "bugs": {
         "url": "https://github.com/mahmmad-khamar-shaikh/Tlib/issues"
     },
     "homepage": "https://github.com/mahmmad-khamar-shaikh/Tlib#readme",
+    "keywords": [
+        "javascript",
+        "Typescript ",
+        "Array",
+        "Extension"
+    ],
     "devDependencies": {
         "@types/jasmine": "^3.5.10",
         "jasmine": "^3.5.0",

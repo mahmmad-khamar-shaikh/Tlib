@@ -1,6 +1,6 @@
 ## What is tzlib ?
     It provides extension methods on javascript Array. 
-    Some methods are replica of linq in .net.
+    Some methods are replica of linq in .Net (C#).
 ## Function Documentation :
  ### *first()*
 ___
