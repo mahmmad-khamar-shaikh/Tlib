@@ -85,7 +85,7 @@ function removeRange() {
 ```
 ### *strictSort()*
 ___
-> Returns first elements of an array.
+> Sorts array for both number & String.
 ```javascript
 function strictSort() {
     let sArray = new Array<number>();
