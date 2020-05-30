@@ -1,11 +1,15 @@
 import '../src/index';
-class Person {
-    id: number;
-    name: string;
+class Heoros {
+    Name: string;
+    Alias: string;
+    SuperStrength: number;
 }
 
 describe("Numeric array items", () => {
-    var numericArray: Array<number>;
+    let numericArray: Array<number>;
+    let numericArray2: Array<number>;
+    let stringArray: Array<string>;
+    let heroList: Array<Heoros>;
     beforeEach(() => {
         numericArray = new Array<number>();
         numericArray.push(3);
@@ -13,6 +17,19 @@ describe("Numeric array items", () => {
         numericArray.push(2);
         numericArray.push(10);
         numericArray.push(4);
+
+
+        numericArray2 = new Array<number>();
+        numericArray2.push(5);
+        numericArray2.push(6);
+
+        stringArray = new Array<string>();
+        stringArray.push("IronMan");
+        stringArray.push("Captain America");
+
+        heroList = new Array<Heoros>();
+        heroList.push({ Name: "Tony Stark", Alias: "Iron Man", SuperStrength: 8 });
+        heroList.push({ Name: "Steve Rogers", Alias: "Captain America", SuperStrength: 7 });
     });
 
     it("Should initialized array with no items", () => {
@@ -26,6 +43,42 @@ describe("Numeric array items", () => {
     });
     it("Should return last elemet from array", () => {
         expect(numericArray.last()).toBe(4);
+    });
+    it("Should return all items greater than 4", () => {
+        const result = numericArray.where(ele => ele > 4);
+        expect(result).toEqual([100, 10]);
+    });
+    it("Should return array with item  4", () => {
+        const result = numericArray.where(ele => ele === 4);
+        expect(result).toEqual([4]);
+    });
+    it("Should return array with items  < 4", () => {
+        const result = numericArray.where(ele => ele < 4);
+        expect(result).toEqual([3, 2]);
+    });
+    it("Should return empty array if no item found", () => {
+        const result = numericArray.where(ele => ele === 5);
+        expect(result).toEqual([]);
+    });
+    it("Should add two array of items", () => {
+        const superSetArray = numericArray.addRange(numericArray2);
+        expect(superSetArray).toEqual([3, 100, 2, 10, 4, 5, 6]);
+    });
+    it("Should remove number of items from array", () => {
+        const subSetArray = numericArray.removeRange(2, 2);
+        expect(subSetArray).toEqual([3, 100, 4]);
+    });
+    it("Should sort numeric array by value ", () => {
+        expect(numericArray.strictSort()).toEqual([2, 3, 4, 10, 100]);
+    });
+    it("Should show Invalid or insufficient items in Array Message", () => {
+
+        expect(function () { numericArray.where(el => el === 4).strictSort() })
+            .toThrow(new Error("Invalid or Insufficient items in Array"));
+    });
+    it("Should show Object Error", () => {
+        expect(function () { heroList.strictSort() })
+            .toThrow(new Error("'strictSort' works with 'number' and 'string'. For sorting array of Objects, use 'orderBy' function"));
     });
 
 });
