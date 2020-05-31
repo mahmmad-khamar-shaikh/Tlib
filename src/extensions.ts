@@ -2,13 +2,15 @@ import { compare } from './util';
 export { }
 declare global {
     export interface Array<T> {
+        addRange(range: T[]): T[];
+        clear(): T[];
         first(): T;
         last(): T;
         where(predicate: (item: T) => boolean): T[];
-        addRange(range: T[]): T[];
         removeRange(index: number, range: number): T[];
         strictSort(): T[];
         orderBy(propertyExpressions: (item: T) => string, asc?: boolean): T[];
+
     }
 }
 
@@ -19,6 +21,16 @@ if (!Array.prototype.first) {
         } else {
             throw new Error("Array has no elements");
         }
+    }
+}
+if (!Array.prototype.clear) {
+    Array.prototype.clear = function <T>(this: T[]): T[] {
+        if (this.length > 0) {
+            this.splice(0, this.length);
+        } else {
+            throw new Error("Array has no elements");
+        }
+        return this;
     }
 }
 if (!Array.prototype.last) {
@@ -51,8 +63,8 @@ if (!Array.prototype.addRange) {
 
 if (!Array.prototype.removeRange) {
     Array.prototype.removeRange = function <T>(this: T[], index: number, range: number): T[] {
-     this.splice(index, range);
-     return this;
+        this.splice(index, range);
+        return this;
     }
 }
 
@@ -63,10 +75,8 @@ if (!Array.prototype.strictSort) {
             switch (typeDetermine) {
                 case "string":
                     return this.sort();
-                    break;
                 case "number":
                     return this.sort(compare);
-                    break;
                 default:
                     throw new Error("'strictSort' works with 'number' and 'string'. For sorting array of Objects, use 'orderBy' function");
             }
