@@ -43,7 +43,7 @@ function clear() {
         numArray.push(2);
         numArray.push(10);
         numArray.push(4);
-  console.log(numArray.clear());  // This will print 4
+  console.log(numArray.clear());  // This will print []
 
 }
 ```
