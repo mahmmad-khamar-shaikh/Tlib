@@ -32,6 +32,21 @@ function last() {
 
 }
 ```
+### *clear()*
+___
+> Remove all elements from an array.
+```javascript
+function clear() {
+    let numArray = new Array<number>();
+        numArray.push(3);
+        numArray.push(100);
+        numArray.push(2);
+        numArray.push(10);
+        numArray.push(4);
+  console.log(numArray.clear());  // This will print 4
+
+}
+```
  ### *where(predicate)*
 ___
 > Returns subset of source Array that satisfies predicate.

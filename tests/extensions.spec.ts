@@ -34,15 +34,27 @@ describe("Numeric array items", () => {
 
     it("Should initialized array with no items", () => {
         expect(numericArray).toBeDefined();
-    })
+    });
     it("Should initialized array with 5 items", () => {
         expect(numericArray.length).toBe(5);
-    })
+    });
     it("Should return first element from array", () => {
         expect(numericArray.first()).toBe(3);
     });
+    it("Should throw an error 'Array has no element'- for First()", () => {
+        expect(function () { numericArray.clear().first() }).toThrow(new Error("Array has no elements"));
+    });
     it("Should return last elemet from array", () => {
         expect(numericArray.last()).toBe(4);
+    });
+    it("Should throw an error 'Array has no element'-for Last()", () => {
+        expect(function () { numericArray.clear().last() }).toThrow(new Error("Array has no elements"));
+    });
+    it("Should clear all the items from array and return blank array", () => {
+        expect(numericArray.clear().length).toBe(0);
+    });
+    it("Should throw an error 'Array has no element'- for First()", () => {
+        expect(function () { numericArray.clear().clear() }).toThrow(new Error("Array has no elements"));
     });
     it("Should return all items greater than 4", () => {
         const result = numericArray.where(ele => ele > 4);
@@ -68,8 +80,14 @@ describe("Numeric array items", () => {
         const subSetArray = numericArray.removeRange(2, 2);
         expect(subSetArray).toEqual([3, 100, 4]);
     });
+    /***
+     * strictSort
+     */
     it("Should sort numeric array by value ", () => {
         expect(numericArray.strictSort()).toEqual([2, 3, 4, 10, 100]);
+    });
+    it("Should sort string array by value", () => {
+        expect(stringArray.strictSort()).toEqual(["Captain America", "IronMan"]);
     });
     it("Should show Invalid or insufficient items in Array Message", () => {
 
@@ -79,6 +97,10 @@ describe("Numeric array items", () => {
     it("Should show Object Error", () => {
         expect(function () { heroList.strictSort() })
             .toThrow(new Error("'strictSort' works with 'number' and 'string'. For sorting array of Objects, use 'orderBy' function"));
+    });
+    it("Shuold show invalid or insufficient error when array is blank ", () => {
+        expect(function () { numericArray.clear().strictSort() })
+            .toThrow(new Error("Invalid or Insufficient items in Array"));
     });
 
 });
