@@ -5,7 +5,7 @@ class Heoros {
     SuperStrength: number;
 }
 
-describe("Numeric array items", () => {
+describe("Extension methods for array", () => {
     let numericArray: Array<number>;
     let numericArray2: Array<number>;
     let stringArray: Array<string>;
@@ -102,6 +102,28 @@ describe("Numeric array items", () => {
         expect(function () { numericArray.clear().strictSort() })
             .toThrow(new Error("Invalid or Insufficient items in Array"));
     });
-
+    /**
+     * OrderBy
+     */
+    it("Should sort array of object in ascending order", () => {
+        expect(heroList.orderBy(item => item.Name)).toEqual([
+            { Name: "Steve Rogers", Alias: "Captain America", SuperStrength: 7 },
+            { Name: "Tony Stark", Alias: "Iron Man", SuperStrength: 8 }
+        ])
+    });
+    it("Should sort array of object in descending order", () => {
+        expect(heroList.orderBy(item => item.Name, false)).toEqual([
+            { Name: "Tony Stark", Alias: "Iron Man", SuperStrength: 8 },
+            { Name: "Steve Rogers", Alias: "Captain America", SuperStrength: 7 }
+        ])
+    });
+    it("Should show invalid or insufficient item in array message when Array of object is empty", () => {
+        expect(function () { heroList.clear().orderBy(item => item.Name) })
+            .toThrow(new Error("Invalid or Insufficient items in Array"));
+    });
+    it("Should show Object Error", () => {
+        expect(function () { stringArray.orderBy(item=>item) })
+            .toThrow(new Error("'orderBy' works with 'object' . For sorting array of string or number, use 'strict' function"));
+    });
 });
 
