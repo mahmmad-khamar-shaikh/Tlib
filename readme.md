@@ -2,7 +2,7 @@
     It provides extension methods on javascript Array. 
     Some methods are replica of linq in .Net (C#).
 ## Function Documentation :
- ### *first()*
+### *first()*
 ___
 > Returns first elements of an array.
 ```javascript
@@ -17,7 +17,7 @@ function first() {
 
 }
 ```
- ### *last()*
+### *last()*
 ___
 > Returns last elements of an array.
 ```javascript
@@ -47,7 +47,7 @@ function clear() {
 
 }
 ```
- ### *where(predicate)*
+### *where(predicate)*
 ___
 > Returns subset of source Array that satisfies predicate.
 ```javascript
@@ -63,7 +63,7 @@ function where() {
 
 }
 ```
- ### *addRange()*
+### *addRange()*
 ___
 > Returns Array which is superset of two arrays.
 ```javascript
@@ -82,7 +82,7 @@ function addRange() {
 }
 ```
 
- ### *removeRange()*
+### *removeRange()*
 ___
 > Returns first elements of an array.
 ```javascript
