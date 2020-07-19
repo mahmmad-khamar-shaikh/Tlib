@@ -122,8 +122,11 @@ describe("Extension methods for array", () => {
             .toThrow(new Error("Invalid or Insufficient items in Array"));
     });
     it("Should show Object Error", () => {
-        expect(function () { stringArray.orderBy(item=>item) })
+        expect(function () { stringArray.orderBy(item => item) })
             .toThrow(new Error("'orderBy' works with 'object' . For sorting array of string or number, use 'strict' function"));
+    });
+    it("Should insert 50 at location 2 ", () => {
+        expect(numericArray.insertAt(50,1)[1]).toBe(50);
     });
 });
 
