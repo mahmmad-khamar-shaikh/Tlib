@@ -138,3 +138,18 @@ function orderBy(expression,sortOrder) {
   console.log(numArray.orderBy(item=>item.Alias));  // Will sort array by Alias property in Desc order
 }
 ```
+### *orderBy(property,sortOrder?)*
+___
+> Returns first elements of an array.
+```javascript
+function insertAt(expression,sortOrder) {
+    let numArray = new Array<number>();
+        numArray.push(3);
+        numArray.push(100);
+        numArray.push(2);
+        numArray.push(10);
+        numArray.push(4);
+  
+  console.log(numArray.insertAt(50,0,1));  // Will insert 50 at array index 1, print 3, 50, 100, 2, 10, 4
+}
+```

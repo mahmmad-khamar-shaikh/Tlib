@@ -10,6 +10,7 @@ declare global {
         removeRange(index: number, range: number): T[];
         strictSort(): T[];
         orderBy(propertyExpressions: (item: T) => string, asc?: boolean): T[];
+        insertAt(item: T, index: number): T[];
 
     }
 }
@@ -64,6 +65,13 @@ if (!Array.prototype.addRange) {
 if (!Array.prototype.removeRange) {
     Array.prototype.removeRange = function <T>(this: T[], index: number, range: number): T[] {
         this.splice(index, range);
+        return this;
+    }
+}
+
+if (!Array.prototype.insertAt) {
+    Array.prototype.insertAt = function <T>(this: T[], item: T, index: number): T[] {
+        this.splice(index, 0, item);
         return this;
     }
 }
