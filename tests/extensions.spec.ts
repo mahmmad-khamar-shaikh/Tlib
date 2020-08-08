@@ -38,24 +38,36 @@ describe("Extension methods for array", () => {
     it("Should initialized array with 5 items", () => {
         expect(numericArray.length).toBe(5);
     });
+    /***
+     *  First() 
+     * */
     it("Should return first element from array", () => {
         expect(numericArray.first()).toBe(3);
     });
     it("Should throw an error 'Array has no element'- for First()", () => {
         expect(function () { numericArray.clear().first() }).toThrow(new Error("Array has no elements"));
     });
+    /** 
+     * Last()
+     *  */
     it("Should return last elemet from array", () => {
         expect(numericArray.last()).toBe(4);
     });
     it("Should throw an error 'Array has no element'-for Last()", () => {
         expect(function () { numericArray.clear().last() }).toThrow(new Error("Array has no elements"));
     });
+    /*** 
+     * Clear()
+     */
     it("Should clear all the items from array and return blank array", () => {
         expect(numericArray.clear().length).toBe(0);
     });
     it("Should throw an error 'Array has no element'- for First()", () => {
         expect(function () { numericArray.clear().clear() }).toThrow(new Error("Array has no elements"));
     });
+    /***
+     *  Where()
+     *  */
     it("Should return all items greater than 4", () => {
         const result = numericArray.where(ele => ele > 4);
         expect(result).toEqual([100, 10]);
@@ -72,10 +84,16 @@ describe("Extension methods for array", () => {
         const result = numericArray.where(ele => ele === 5);
         expect(result).toEqual([]);
     });
+    /** 
+     * addRange()
+     *  */
     it("Should add two array of items", () => {
         const superSetArray = numericArray.addRange(numericArray2);
         expect(superSetArray).toEqual([3, 100, 2, 10, 4, 5, 6]);
     });
+    /***
+     *  RemoveRange()
+     *  */
     it("Should remove number of items from array", () => {
         const subSetArray = numericArray.removeRange(2, 2);
         expect(subSetArray).toEqual([3, 100, 4]);
@@ -125,8 +143,11 @@ describe("Extension methods for array", () => {
         expect(function () { stringArray.orderBy(item => item) })
             .toThrow(new Error("'orderBy' works with 'object' . For sorting array of string or number, use 'strict' function"));
     });
+    /**
+     *  InserAt 
+     */
     it("Should insert 50 at location 2 ", () => {
-        expect(numericArray.insertAt(50,1)[1]).toBe(50);
+        expect(numericArray.insertAt(50, 1)[1]).toBe(50);
     });
 });
 
