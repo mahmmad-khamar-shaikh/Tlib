@@ -149,5 +149,20 @@ describe("Extension methods for array", () => {
     it("Should insert 50 at location 2 ", () => {
         expect(numericArray.insertAt(50, 1)[1]).toBe(50);
     });
+
+    /** 
+     * GetMatchCount
+     */
+    it("Should return 2 for number array", () => {
+        numericArray.push(2);
+        const result = numericArray.getMatchCount(item => item === 2);
+        expect(result).toBe(2);
+    });
+    it("Should return 2 for array of object search count", () => {
+         heroList.push({ Name: "Tony Stark", Alias: "Iron Man", SuperStrength: 8 });
+         const result = heroList.getMatchCount(item=>item.Name==="Tony Stark");
+         expect(result).toBe(2);
+
+    });
 });
 
