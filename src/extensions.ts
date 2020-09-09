@@ -11,6 +11,7 @@ declare global {
         strictSort(): T[];
         orderBy(propertyExpressions: (item: T) => string, asc?: boolean): T[];
         insertAt(item: T, index: number): T[];
+        getMatchCount(predicate: (item: T) => boolean): number;
 
     }
 }
@@ -73,6 +74,11 @@ if (!Array.prototype.insertAt) {
     Array.prototype.insertAt = function <T>(this: T[], item: T, index: number): T[] {
         this.splice(index, 0, item);
         return this;
+    }
+}
+if (!Array.prototype.getMatchCount) {
+    Array.prototype.getMatchCount = function <T>(this: T[], predicate: (ele: T) => boolean): number {
+        return this.filter(predicate).length;
     }
 }
 
