@@ -142,7 +142,7 @@ function orderBy(expression,sortOrder) {
 ___
 > Returns first elements of an array.
 ```javascript
-function insertAt(expression,sortOrder) {
+function insertAt() {
     let numArray = new Array<number>();
         numArray.push(3);
         numArray.push(100);
@@ -151,5 +151,20 @@ function insertAt(expression,sortOrder) {
         numArray.push(4);
   
   console.log(numArray.insertAt(50,0,1));  // Will insert 50 at array index 1, print 3, 50, 100, 2, 10, 4
+}
+```
+### *getMatchCount(predicate)*
+___
+> Returns first elements of an array.
+```javascript
+function getcount() {
+    let numArray = new Array<number>();
+        numArray.push(3);
+        numArray.push(100);
+        numArray.push(3);
+        numArray.push(10);
+        numArray.push(2);
+  
+  console.log(numArray.getMatchCount(ele=>ele===3));  // Will return 2.
 }
 ```
