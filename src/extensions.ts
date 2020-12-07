@@ -12,6 +12,7 @@ declare global {
         orderBy(propertyExpressions: (item: T) => string, asc?: boolean): T[];
         insertAt(item: T, index: number): T[];
         getMatchCount(predicate: (item: T) => boolean): number;
+        removeDuplicate(Key: keyof T): T[];
 
     }
 }
@@ -127,6 +128,15 @@ if (!Array.prototype.orderBy) {
             }
         } else {
             throw new Error("Invalid or Insufficient items in Array");
+        }
+    }
+    if (!Array.prototype.removeDuplicate) {
+        Array.prototype.removeDuplicate = function <T>(this: T[], key: keyof T): T[] {
+            return Array.from(
+                new Set(this.map(arrayIteam => arrayIteam[key]))
+              ).map(uniqueItem => {
+                return this.find(item => item[key] === uniqueItem);
+              });
         }
     }
 }
