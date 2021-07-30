@@ -127,8 +127,8 @@ let numArray = new Array<number>();
 ```
 ### *orderBy(property,sortOrder?)*
 ___
-> Returns sorted Array of objects determine by key.
-> User has an option to select it either asceding or descending order.
+> Returns sorted Array of objects determined by key.
+> User has an option to select either asceding or descending order.
 ```javascript
 function orderBy(expression,sortOrder) {
     let sArray = new Array<number>();
