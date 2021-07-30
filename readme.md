@@ -140,7 +140,7 @@ function orderBy(expression,sortOrder) {
 ```
 ### *orderBy(property,sortOrder?)*
 ___
-> Returns first elements of an array.
+> Insert element at mentioned position.
 ```javascript
 function insertAt() {
     let numArray = new Array<number>();
@@ -155,7 +155,7 @@ function insertAt() {
 ```
 ### *getMatchCount(predicate)*
 ___
-> Returns first elements of an array.
+> Returns count of number of matching element.
 ```javascript
 function getcount() {
     let numArray = new Array<number>();
