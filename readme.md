@@ -127,7 +127,8 @@ let numArray = new Array<number>();
 ```
 ### *orderBy(property,sortOrder?)*
 ___
-> Returns first elements of an array.
+> Returns sorted Array of objects determine by key.
+> User has an option to select it either asceding or descending order.
 ```javascript
 function orderBy(expression,sortOrder) {
     let sArray = new Array<number>();
@@ -135,7 +136,7 @@ function orderBy(expression,sortOrder) {
                   { Name: 'Steve Rojer', Alias: 'Captain America' }, { Name: 'Natasha Romanova', Alias: 'Black Widow' }];
   
   console.log(numArray.orderBy(item=>item.Name));  // Will sort array by Name property in Asc order
-  console.log(numArray.orderBy(item=>item.Alias));  // Will sort array by Alias property in Desc order
+  console.log(numArray.orderBy(item=>item.Alias),false);  // Will sort array by Alias property in Desc order
 }
 ```
 ### *orderBy(property,sortOrder?)*
