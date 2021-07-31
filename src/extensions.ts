@@ -124,7 +124,7 @@ if (!Array.prototype.orderBy) {
                 return this;
 
             } else {
-                throw new Error("'orderBy' works with 'object' . For sorting array of string or number, use 'strict' function");
+                throw new Error("'orderBy' works with 'object' . For sorting array of string or number, use 'strictSort' function");
             }
         } else {
             throw new Error("Invalid or Insufficient items in Array");
