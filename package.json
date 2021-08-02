@@ -1,6 +1,6 @@
 {
     "name": "tzlib",
-    "version": "1.0.12",
+    "version": "1.0.14",
     "description": "Extension methods to premitive types",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",

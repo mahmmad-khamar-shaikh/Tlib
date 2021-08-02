@@ -139,7 +139,7 @@ function orderBy(expression,sortOrder) {
   console.log(numArray.orderBy(item=>item.Alias),false);  // Will sort array by Alias property in Desc order
 }
 ```
-### *orderBy(property,sortOrder?)*
+### *insertAt(item,position)*
 ___
 > Insert element at mentioned position.
 ```javascript
