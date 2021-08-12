@@ -1,4 +1,5 @@
 import '../src/index';
+//Dummy class
 class Heoros {
     Name: string;
     Alias: string;
