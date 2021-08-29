@@ -141,7 +141,7 @@ describe("Extension methods for array", () => {
     });
     it("Should show Object Error", () => {
         expect(function () { stringArray.orderBy(item => item) })
-            .toThrow(new Error("'orderBy' works with 'object' . For sorting array of string or number, use 'strict' function"));
+            .toThrow(new Error("'orderBy' works with 'object' . For sorting array of string or number, use 'strictSort' function"));
     });
     /**
      *  InserAt 
@@ -159,10 +159,19 @@ describe("Extension methods for array", () => {
         expect(result).toBe(2);
     });
     it("Should return 2 for array of object search count", () => {
-         heroList.push({ Name: "Tony Stark", Alias: "Iron Man", SuperStrength: 8 });
-         const result = heroList.getMatchCount(item=>item.Name==="Tony Stark");
-         expect(result).toBe(2);
+        heroList.push({ Name: "Tony Stark", Alias: "Iron Man", SuperStrength: 8 });
+        const result = heroList.getMatchCount(item => item.Name === "Tony Stark");
+        expect(result).toBe(2);
 
     });
+    /**
+     * removeDuplicate
+     */
+    it('Should return only two elements', () => {
+        heroList.push({ Name: "Tony Stark", Alias: "Iron Man", SuperStrength: 8 });
+        const result = heroList.removeDuplicate("Name");
+        expect(result.length).toBe(2);
+    });
+
 });
 
